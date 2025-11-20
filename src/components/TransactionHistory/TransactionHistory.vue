@@ -38,7 +38,7 @@ const getAmountClass = (transaction) => {
 <template>
   <div class="p-4">
     <div class="flex items-center gap-2  mb-4">
-        <p class=" ">HESAP HAREKETLERI</p>
+        <p class="text-xs text-[#6A6B6F]">HESAP HAREKETLERI</p>
         <Icon icon="mingcute:arrow-right-line" />
     </div>
 
@@ -63,12 +63,12 @@ const getAmountClass = (transaction) => {
                 <img :src="transaction.image" class="h-14 rounded-full" />
                 <div>
                     <p class="text-white font-medium text-base ">{{  transaction.title }}</p>
-                    <p  class="text-xs">{{  transaction.description }}</p>
+                    <p  class="text-xs text-[#6A6B6F]">{{  transaction.description }}</p>
                 </div>
             </div>
             <div>
                 <p :class="[' text-right text-base font-bold', getAmountClass(transaction)]">{{ formatAmount(transaction.amount)}}</p>
-                <p class="text-xs">{{ transaction.date }}</p>
+                <p class="text-xs text-[#6A6B6F]">{{ transaction.date }}</p>
             </div>
             
         </div>

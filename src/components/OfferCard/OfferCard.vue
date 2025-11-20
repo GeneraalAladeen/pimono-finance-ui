@@ -27,7 +27,7 @@
             </div>
             <img :src="icon" class="h-13 w-13" />
         </div>
-        <p class="text-xs text-center text-white leading-3">{{  text }}</p>
+        <p class="text-xs text-center text-[#FDFEFF/1] leading-3">{{  text }}</p>
     </div>
 
 </template>

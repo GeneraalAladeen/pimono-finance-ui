@@ -4,6 +4,7 @@
   import OfferCard from '@/components/OfferCard'
   import TransactionHistory from '@/components/TransactionHistory'
   import Card from '@/components/common/Card.vue'
+  import PromoCard from '@/components/PromoCard'
 
   import superman from '@/assets/superman.svg';
   import garanti from '@/assets/garanti.png';
@@ -12,6 +13,7 @@
   import web from '@/assets/web.png';
 
   import { Icon } from "@iconify/vue";
+  import { computed } from 'vue'
 
   const transactions = [
      {
@@ -29,6 +31,23 @@
       type: 'credit',
       amount: 20000,
       date: '11 Nov 2025 12:12'
+    },
+  ]
+
+   const promos = [
+    {
+      icon: 'tdesign:upload-1',
+      text:'Hesabina Para Yatir',
+
+    },
+    {
+      icon: 'zondicons:credit-card',
+      text:'Papara Card Iste',
+    },
+      {
+      icon: 'fa7-regular:user-large',
+      text:'e-Sans 150 TL Hediye',
+
     },
   ]
 
@@ -86,29 +105,46 @@
       <div class="flex mb-4 items-center">
         <div class="grow">
           <p class="text-[26px] font-medium text-white leading-7 mb-2">Yetirim<br /> Hesabi</p>
-          <p class="text-xs">(Altin, gumus, Platin)</p>
+          <p class="text-xs text-[#6A6B6F]">(Altin, gumus, Platin)</p>
         </div>
         <img :src="stat" class="h-25" />
       </div>
 
-      <button class="w-full justify-between inline-flex rounded-xl border-[#37383C] border p-4 bg-[#121317]">
+      <button class="w-full justify-between items-center inline-flex rounded-xl border-[#37383C] border p-4 bg-[#121317]">
         <span class="text-white">Yatirim hesabi Olustur</span>
-        <span>></span>
+        <Icon icon="tabler:chevron-right" color="#fff" />
       </button>
     </Card>
 
 
     <Card>
-      <button class="w-full justify-between inline-flex rounded-xl border-[#37383C] border p-6 bg-[#121317] grow">
-        <span>Yatirim</span>
-        <span>></span>
+      <button class="w-full justify-between items-center inline-flex rounded-xl border-[#37383C] border p-4 bg-[#121317]">
+        <span class="text-white">Yatirim</span>
+        <Icon icon="tabler:chevron-right" color="#fff" />
       </button>
     </Card>
   </div>
 
+  <div class="gap-2 ">
+    <div class="flex justify-between p-4">
+      <div class="flex items-center gap-2 ">
+          <p class="text-xs text-[#6A6B6F]">DAHA IYI BIR PAPARA DENEYIMI</p>
+          <Icon icon="mingcute:arrow-right-line" />
+      </div>
+      <p class="text-[#DCA36C]">2 / 5</p>
+    </div>
+    <div class="overflow-hidden gap-2  flex mb-4 px-4">
+      <PromoCard 
+        v-for="(promo, index) in promos"
+        :key="index"
+        :text="promo.text"
+        :icon="promo.icon"
+      />
+    </div>
+  </div>
+
+
   <TransactionHistory :transactions="transactions" :loading="false" />
-
-
   <BottomNavBar />
 </template>
 
