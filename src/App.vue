@@ -2,13 +2,35 @@
   import Header from './components/layout/Header.vue'
   import BottomNavBar from './components/layout/BottomNavBar.vue'
   import OfferCard from '@/components/OfferCard'
+  import TransactionHistory from '@/components/TransactionHistory'
   import Card from '@/components/common/Card.vue'
 
   import superman from '@/assets/superman.svg';
+  import garanti from '@/assets/garanti.png';
+
   import stat from '@/assets/stat.png';
   import web from '@/assets/web.png';
 
   import { Icon } from "@iconify/vue";
+
+  const transactions = [
+     {
+      image: garanti,
+      title:'Hidayet Salt',
+      description:'FAST Para Transferi',
+      type: 'debit',
+      amount: 20000,
+      date: '11 Nov 2025 12:12'
+    },
+    {
+      image: garanti,
+      title:'Garanti BBVA',
+      description:'FAST Para Transferi',
+      type: 'credit',
+      amount: 20000,
+      date: '11 Nov 2025 12:12'
+    },
+  ]
 
 
 
@@ -63,7 +85,7 @@
           </div>
       <div class="flex mb-4 items-center">
         <div class="grow">
-          <p class="text-[26px] text-white leading-7 mb-2">Yetirim<br /> Hesabi</p>
+          <p class="text-[26px] font-medium text-white leading-7 mb-2">Yetirim<br /> Hesabi</p>
           <p class="text-xs">(Altin, gumus, Platin)</p>
         </div>
         <img :src="stat" class="h-25" />
@@ -83,6 +105,8 @@
       </button>
     </Card>
   </div>
+
+  <TransactionHistory :transactions="transactions" :loading="false" />
 
 
   <BottomNavBar />

@@ -39,7 +39,7 @@
 </script>
 
 <template>
-    <nav class="fixed bottom-0 left-0 right-0 ">
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#121317]">
     <div class="flex justify-around items-center py-2">
       <button
         v-for="item in navItems"
