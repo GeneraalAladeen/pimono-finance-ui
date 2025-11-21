@@ -20,7 +20,7 @@
 </script>
 
 <template>
-    <div class="flex flex-col items-center w-24 gap-2 grow-0 shrink-0">
+    <div class="flex flex-col items-center w-22 gap-2 grow-0 shrink-0">
         <div class="relative rounded-full grow-0 border-3 p-1 border-white">
             <div v-show="pinned" class="absolute rounded-full top-0 -right-2 p-1 bg-white">
                 <Icon icon="sidekickicons:pin-20-solid" :height="18" color="#000"  />

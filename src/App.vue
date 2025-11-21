@@ -14,7 +14,13 @@
   import web from '@/assets/web.png';
 
   import { Icon } from "@iconify/vue";
-  import { computed } from 'vue'
+  import { computed , ref } from 'vue'
+
+  const currentPromoPage = ref(1)
+
+  const handlePageChange = (pageNumber) => {
+    currentPromoPage.value = pageNumber
+  }
 
   const transactions = [
      {
@@ -86,13 +92,15 @@
 <template>
   <Header />
 
-  <div class="overflow-hidden flex mb-4">
-    <OfferCard 
-      v-for="(offer, index) in offers" 
-      :key="index" 
-      :pinned="offer.pinned" 
-      :text="offer.text" 
-      :icon="offer.icon" />
+  <div class="overflow-hidden flex mb-4 pl-3">
+    <Carousel :item-count="offers.length" :show-indicators="false">
+      <OfferCard 
+        v-for="(offer, index) in offers" 
+        :key="index" 
+        :pinned="offer.pinned" 
+        :text="offer.text" 
+        :icon="offer.icon" />
+    </Carousel>
   </div>
 
   <div class="mt-6 pl-4">
@@ -167,15 +175,17 @@
           <p class="text-xs text-[#6A6B6F]">DAHA IYI BIR PAPARA DENEYIMI</p>
           <Icon icon="mingcute:arrow-right-line" />
       </div>
-      <p class="text-[#DCA36C]">2 / 5</p>
+      <p class="text-[#DCA36C]">{{ currentPromoPage }} / 5</p>
     </div>
-    <div class="overflow-hidden gap-2  flex mb-4 px-4">
-      <PromoCard 
-        v-for="(promo, index) in promos"
-        :key="index"
-        :text="promo.text"
-        :icon="promo.icon"
-      />
+    <div class="overflow-hidden gap-2  flex mb-2 px-4">
+      <Carousel @current-page="handlePageChange"  :item-count="promos.length" :show-indicators="false">
+        <PromoCard 
+          v-for="(promo, index) in promos"
+          :key="index"
+          :text="promo.text"
+          :icon="promo.icon"
+        />
+      </Carousel>
     </div>
   </div>
 

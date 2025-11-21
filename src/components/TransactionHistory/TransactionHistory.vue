@@ -60,7 +60,7 @@ const getAmountClass = (transaction) => {
           class="flex justify-between items-center "
         >
             <div class="flex items-center gap-4">
-                <img :src="transaction.image" class="h-14 rounded-full" />
+                <img :src="transaction.image" class="h-12 rounded-full" />
                 <div>
                     <p class="text-white font-medium text-base ">{{  transaction.title }}</p>
                     <p  class="text-xs text-[#6A6B6F]">{{  transaction.description }}</p>

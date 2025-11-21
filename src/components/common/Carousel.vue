@@ -44,7 +44,7 @@ import { ref, defineProps, computed } from 'vue'
                 behavior: 'smooth'
             })
             currentIndex.value = index
-            emit('currentPage', index);
+            emit('currentPage', index + 1);
         }
     }
 
@@ -71,8 +71,9 @@ const handleScroll = () => {
             
             if (newIndex !== currentIndex.value) {
                 currentIndex.value = Math.max(0, Math.min(newIndex, totalItems.length - 1))
-                emit('currentPage', currentIndex.value);
             }
+
+            emit('currentPage', currentIndex.value + 1);
         }
     }, 100)
 }
