@@ -7,6 +7,11 @@
   import Carousel from '@/components/common/Carousel.vue'
   import PromoCard from '@/components/PromoCard'
   import ActionCard from '@/components/ActionCard'
+  import AccountCard from '@/components/AccountCard'
+
+  import IconPreciousMetals from '@/components/icons/IconPreciousMetals.vue'
+  import IconAnalytics from '@/components/icons/IconAnalytics.vue'
+  import IconBars from '@/components/icons/IconBars.vue'
 
   import superman from '@/assets/images/superman.svg';
   import garanti from '@/assets/images/garanti.png';
@@ -16,6 +21,8 @@
   import graph from '@/assets/images/graph.png';
   import gift from '@/assets/images/gift.png';
   import money from '@/assets/images/money.png';
+  import bar from '@/assets/images/bar.png';
+  import jar from '@/assets/images/jar.png';
 
   import { Icon } from "@iconify/vue";
   import { computed , ref } from 'vue'
@@ -108,68 +115,39 @@
   </div>
 
   <div class="mt-4 pl-4">
-    <Carousel :item-count="3">
-        <Card>
-          <div class="flex gap-3">
-              <div class="bg-[#0098C9] rounded-full p-1">
-                <Icon icon="carbon:analytics" :height="14" color="#fff" />
-              </div>
-    
-              </div>
-          <div class="flex mb-4 items-center">
-            <div class="grow">
-              <p class="text-[26px] font-medium text-white leading-7 mb-2">Yetirim<br /> Hesabi</p>
-              <p class="text-xs text-[#6A6B6F]">(Altin, gumus, Platin)</p>
-            </div>
-            <img :src="stat" class="h-25" />
-          </div>
-    
-          <button class="w-full justify-between items-center inline-flex rounded-xl border-[#37383C] border p-3.5 bg-[#121317]">
-            <span class="text-white">Yatirim hesabi Olustur</span>
-            <Icon icon="tabler:chevron-right" color="#fff" />
-          </button>
-        </Card>
-
-        <Card>
-          <div class="flex gap-3">
-              <div class="bg-[#0098C9] rounded-full p-1">
-                <Icon icon="carbon:analytics" :height="14" color="#fff" />
-              </div>
-    
-              </div>
-          <div class="flex mb-4 items-center">
-            <div class="grow">
-              <p class="text-[26px] font-medium text-white leading-7 mb-2">Yetirim<br /> Hesabi</p>
-              <p class="text-xs text-[#6A6B6F]">(Altin, gumus, Platin)</p>
-            </div>
-            <img :src="stat" class="h-25" />
-          </div>
-    
-          <button class="w-full justify-between items-center inline-flex rounded-xl border-[#37383C] border p-4 bg-[#121317]">
-            <span class="text-white">Yatirim hesabi Olustur</span>
-            <Icon icon="tabler:chevron-right" color="#fff" />
-          </button>
-        </Card>
-         <Card>
-          <div class="flex gap-3">
-              <div class="bg-[#0098C9] rounded-full p-1">
-                <Icon icon="carbon:analytics" :height="14" color="#fff" />
-              </div>
-    
-              </div>
-          <div class="flex mb-4 items-center">
-            <div class="grow">
-              <p class="text-[26px] font-medium text-white leading-7 mb-2">Yetirim<br /> Hesabi</p>
-              <p class="text-xs text-[#6A6B6F]">(Altin, gumus, Platin)</p>
-            </div>
-            <img :src="stat" class="h-25" />
-          </div>
-    
-          <button class="w-full justify-between items-center inline-flex rounded-xl border-[#37383C] border p-4 bg-[#121317]">
-            <span class="text-white">Yatirim hesabi Olustur</span>
-            <Icon icon="tabler:chevron-right" color="#fff" />
-          </button>
-        </Card>
+    <Carousel :item-count="4">
+      <AccountCard
+        title="Yetirim Hesabi"
+        description="(Altin, gumus, Platin)"
+        buttonLabel="Yatirim hesabi Olustur"
+        :image="stat"
+      >
+        <IconAnalytics />
+      </AccountCard>
+      <AccountCard
+        title="Dolar Hesabi"
+        description="(Altin, gumus, Platin)"
+        buttonLabel="Yatirim hesabi Olustur"
+        :image="web"
+      >
+        <Icon icon="circle-flags:us" :height="24" />
+      </AccountCard>
+      <AccountCard
+        title="Kiyetli Madenler"
+        description="(Altin, gumus, Platin)"
+        buttonLabel="Kiymetli Madenler Hesabi Ac"
+        :image="bar"
+      >
+        <IconPreciousMetals />
+      </AccountCard>
+      <AccountCard
+        title="Birikim Hesabi"
+        description="(Altin, gumus, Platin)"
+        buttonLabel="Yatirim hesabi Olustur"
+        :image="jar"
+      >
+        <IconBars />
+      </AccountCard>
     </Carousel>
   </div>
 
