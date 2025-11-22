@@ -1,32 +1,31 @@
 <script setup>
-    import { defineProps } from 'vue'
-    import { Icon } from "@iconify/vue";
-    import Card from '@/components/common/Card.vue'
+import { defineProps } from 'vue'
+import { Icon } from '@iconify/vue'
+import Card from '@/components/common/Card.vue'
 
-    defineProps({
-        title: {
-            type: String,
-            required: true
-        },
-        description: {
-            type: String,
-            required: true
-        },
-        image: {
-            type: String,
-            default: "h-20"
-        },
-        imageStyle: {
-            type: String,
-        },
-        buttonLabel: {
-            type: String,
-            required: true
-        }
-    })
+defineProps({
+    title: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    image: {
+        type: String,
+        default: 'h-20',
+    },
+    imageStyle: {
+        type: String,
+    },
+    buttonLabel: {
+        type: String,
+        required: true,
+    },
+})
 
-    const emit = defineEmits(['click'])
-
+const emit = defineEmits(['click'])
 </script>
 
 <template>
@@ -39,10 +38,12 @@
             </div>
             <img :src="image" :class="[imageStyle ? imageStyle : 'h-30', 'pr-4 pb-4']" />
         </div>
-        <button @click="emit('click')" class="w-full justify-between items-center inline-flex rounded-xl border-[#37383C] border p-3 bg-[#121317]">
+        <button
+            @click="emit('click')"
+            class="w-full justify-between items-center inline-flex rounded-xl border-[#37383C] border p-3 bg-[#121317]"
+        >
             <span class="text-white">{{ buttonLabel }}</span>
             <Icon icon="tabler:chevron-right" :height="22" color="#fff" />
         </button>
     </Card>
 </template>
-

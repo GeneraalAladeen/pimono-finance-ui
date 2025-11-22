@@ -1,68 +1,69 @@
 <script setup>
 import { computed, defineProps, defineEmits } from 'vue'
-import { Icon } from "@iconify/vue";
+import { Icon } from '@iconify/vue'
 
 import { formatAmount } from '@/utils/formatter.js'
 
-
-
 const props = defineProps({
-  transactions: {
-    type: Array,
-    default: () => [],
-  },
-  loading: {
-    type: Boolean,
-    default: false,
-  },
+    transactions: {
+        type: Array,
+        default: () => [],
+    },
+    loading: {
+        type: Boolean,
+        default: false,
+    },
 })
 
-
 const getAmountClass = (transaction) => {
-  return transaction.type === 'debit' ? 'text-[#FF4136]' : 'text-[#68A33E]'
+    return transaction.type === 'debit' ? 'text-[#FF4136]' : 'text-[#68A33E]'
 }
-
 </script>
 
 <template>
-  <div class="p-4">
-    <div class="flex items-center gap-2  mb-4">
-        <p class="text-xs text-[#6A6B6F]">HESAP HAREKETLERI</p>
-        <Icon icon="mingcute:arrow-right-line" />
-    </div>
+    <div class="p-4">
+        <div class="flex items-center gap-2 mb-4">
+            <p class="text-xs text-[#6A6B6F]">HESAP HAREKETLERI</p>
+            <Icon icon="mingcute:arrow-right-line" />
+        </div>
 
-    <div v-if="loading" class="flex flex-col gap-6">
-      <div v-for="n in 2" :key="n" class="animate-pulse gap-6">
-        <div class="h-14 bg-[#272727] rounded"></div>
-      </div>
-    </div>
+        <div v-if="loading" class="flex flex-col gap-6">
+            <div v-for="n in 2" :key="n" class="animate-pulse gap-6">
+                <div class="h-14 bg-[#272727] rounded"></div>
+            </div>
+        </div>
 
-    <div v-else>
-      <div v-if="transactions.length === 0" class="text-center py-8 text-gray-500">
-        No transactions found.
-      </div>
+        <div v-else>
+            <div v-if="transactions.length === 0" class="text-center py-8 text-gray-500">
+                No transactions found.
+            </div>
 
-      <div v-else class="flex flex-col gap-4">
-        <div
-          v-for="transaction in transactions"
-          :key="transaction.id"
-          class="flex justify-between items-center "
-        >
-            <div class="flex items-center gap-4">
-                <img :src="transaction.image" class="h-12 rounded-full" />
-                <div>
-                    <p class="text-white font-medium text-base ">{{  transaction.title }}</p>
-                    <p  class="text-xs text-[#6A6B6F]">{{  transaction.description }}</p>
+            <div v-else class="flex flex-col gap-4">
+                <div
+                    v-for="transaction in transactions"
+                    :key="transaction.id"
+                    class="flex justify-between items-center"
+                >
+                    <div class="flex items-center gap-4">
+                        <img :src="transaction.image" class="h-12 rounded-full" />
+                        <div>
+                            <p class="text-white font-medium text-base">{{ transaction.title }}</p>
+                            <p class="text-xs text-[#6A6B6F]">{{ transaction.description }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p
+                            :class="[
+                                ' text-right text-base font-bold',
+                                getAmountClass(transaction),
+                            ]"
+                        >
+                            {{ formatAmount(transaction.amount) }}
+                        </p>
+                        <p class="text-xs text-[#6A6B6F]">{{ transaction.date }}</p>
+                    </div>
                 </div>
             </div>
-            <div>
-                <p :class="[' text-right text-base font-bold', getAmountClass(transaction)]">{{ formatAmount(transaction.amount)}}</p>
-                <p class="text-xs text-[#6A6B6F]">{{ transaction.date }}</p>
-            </div>
-            
         </div>
-      </div>
-
     </div>
-  </div>
 </template>
