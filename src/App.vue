@@ -142,30 +142,43 @@ const offers = [
                             <p class="text-[#FBFBFB]/75 text-xs">Turk Lirasi Hesabi</p>
                         </div>
                         <div class="py-4 grow">
-                            <span>
-                                <p class="font-medium text-4xl text-white">{{ formatAmount(0) }}</p>
-                                <p class="text-xs mt-1">IBAN: B124 Y123 G463</p>
-                            </span>
+                            <div>
+                                <span class="flex gap-2 items-center">
+                                    <p class="font-medium text-4xl text-white">
+                                        {{ formatAmount(0) }}
+                                    </p>
+                                    <Icon
+                                        icon="material-symbols:info-outline-rounded"
+                                        :height="20"
+                                        color="#fff"
+                                    />
+                                </span>
+                                <p class="text-xs mt-1">
+                                    IBAN: <span class="text-white">B124 Y123 G463</span>
+                                </p>
+                            </div>
                         </div>
                         <div class="flex gap-2">
-                            <button
-                                @click="emit('click')"
-                                class="w-full justify-between items-center inline-flex rounded-xl border-[#37383C] border p-3 bg-[#121317]"
+                            <div
+                                class="w-full justify-between items-center inline-flex rounded-lg border-[#37383C] border p-2 bg-[#121317]"
                             >
                                 <span class="text-white">Yatir / Cek</span>
-                                <IconButton
-                                    variant="secondary"
-                                    size="small"
-                                    icon="fluent:wallet-32-regular"
-                                />
-                            </button>
-                            <button
-                                @click="emit('click')"
-                                class="w-full justify-between items-center inline-flex rounded-xl border-[#37383C] border p-3 bg-[#121317]"
+                                <div class="rounded-lg p-2 bg-[#ffffff]">
+                                    <Icon
+                                        icon="fluent:wallet-32-regular"
+                                        :height="16"
+                                        color="#000"
+                                    />
+                                </div>
+                            </div>
+                            <div
+                                class="w-full justify-between items-center flex rounded-lg border-[#37383C] border p-2 bg-[#121317]"
                             >
                                 <span class="text-white">Gunder</span>
-                                <IconButton variant="secondary" size="small" icon="fa-send-o" />
-                            </button>
+                                <div class="rounded-lg p-2 bg-[#ffffff]">
+                                    <Icon icon="fa-send-o" :height="16" color="#000" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </Card>
@@ -349,7 +362,16 @@ const offers = [
                         <Icon icon="akar-icons:question" color="#fff" />
                     </div>
                     <div class="py-2 flex justify-between items-center">
-                        <p class="text-xl text-white font-medium">{{ formatAmount(500) }} kaldi</p>
+                        <span class="flex items-center gap-2">
+                            <p class="text-lg text-white font-medium">
+                                {{ formatAmount(500) }} kaldi
+                            </p>
+                            <Icon
+                                icon="material-symbols:info-outline-rounded"
+                                :height="14"
+                                color="#fff"
+                            />
+                        </span>
                         <p class="text-xs text-[#6A6B6F]">
                             <span class="text-white">%0</span> Tamamlandi
                         </p>
