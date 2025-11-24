@@ -5,7 +5,7 @@ defineProps({
     variant: {
         type: String,
         default: 'primary',
-        validator: (value) => ['primary', 'secondary',].includes(value),
+        validator: (value) => ['primary', 'secondary'].includes(value),
     },
     size: {
         type: String,
@@ -23,7 +23,7 @@ const emit = defineEmits(['click'])
         :class="[
             'rounded-xl w-full border-2 border-white p-3  font-medium',
             {
-                'bg-[#323232] text-white': variant === 'primary',
+                'bg-[#121317] text-white': variant === 'primary',
                 'bg-[#ffffff] text-black': variant === 'secondary',
             },
             {
@@ -36,5 +36,3 @@ const emit = defineEmits(['click'])
         <slot></slot>
     </button>
 </template>
-
-

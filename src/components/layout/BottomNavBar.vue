@@ -3,6 +3,7 @@ import { Icon } from '@iconify/vue'
 import { ref } from 'vue'
 import Modal from '@/components/common/Modal.vue'
 import ListItem from '@/components/common/ListItem.vue'
+import router from '@/router'
 
 const showModal = ref(false)
 const selectedItem = ref('Home')
@@ -31,7 +32,7 @@ const navItems = [
     {
         icon: 'zondicons:credit-card',
         name: 'Papara Card',
-        route: 'qr',
+        route: '/card',
     },
 ]
 
@@ -40,6 +41,8 @@ const selectItem = (item) => {
 
     if (item.route === '') {
         showModal.value = true
+    } else {
+        router.push(item.route)
     }
 }
 </script>
