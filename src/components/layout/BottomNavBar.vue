@@ -2,6 +2,7 @@
 import { Icon } from '@iconify/vue'
 import { ref } from 'vue'
 import Modal from '@/components/common/Modal.vue'
+import ListItem from '@/components/common/ListItem.vue'
 
 const showModal = ref(false)
 
@@ -64,61 +65,11 @@ const selectItem = (item) => {
         </div>
         <Modal v-model="showModal" title="Basic Modal">
             <div class="pl-4">
-                <div class="flex gap-4 text-white 0">
-                    <div class="grid place-content-center">
-                        <Icon
-                            :height="18"
-                            icon="fa-send-o"
-                        />
-                    </div>
-                    <div class="border-b py-3 w-full border-b-[#3A3A3C]">
-                        <p class="font-medium">Para Gonder</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 text-white 0">
-                    <div class="grid place-content-center">
-                        <Icon
-                            :height="18"
-                            icon="cil:transfer"
-                        />
-                    </div>
-                    <div class="border-b py-3 w-full border-b-[#3A3A3C]">
-                        <p class="font-medium">Para Iste</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 text-white 0">
-                    <div class="grid place-content-center">
-                        <Icon
-                            :height="18"
-                            icon="streamline-plump:web"
-                        />
-                    </div>
-                    <div class="border-b py-3 w-full border-b-[#3A3A3C]">
-                        <p class="font-medium">Yurt Didi Para Transferi</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 text-white 0">
-                    <div class="grid place-content-center">
-                        <Icon
-                            :height="18"
-                            icon="tdesign:secured"
-                        />
-                    </div>
-                    <div class="border-b py-3 w-full border-b-[#3A3A3C]">
-                        <p class="font-medium">Guvenli Odeme Islemi</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 text-white 0">
-                    <div class="grid place-content-center">
-                        <Icon
-                            :height="18"
-                            icon="pajamas:retry"
-                        />
-                    </div>
-                    <div class="py-3 w-full border-b-[#3A3A3C]">
-                        <p class="font-medium">Dezenli Transfer</p>
-                    </div>
-                </div>
+                <ListItem icon="fa-send-o">Para Gonder</ListItem>
+                <ListItem icon="cil:transfer">Para Iste</ListItem>
+                <ListItem icon="streamline-plump:web">Yurt Didi Para Transferi</ListItem>
+                <ListItem icon="tdesign:secured">Guvenli Odeme Islemi</ListItem>
+                <ListItem icon="pajamas:retry">Dezenli Transfer</ListItem>
             </div>
         </Modal>
     </nav>
