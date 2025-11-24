@@ -48,7 +48,7 @@ const selectItem = (item) => {
     }
 
     if (item.route === '') {
-        return showModal.value = true
+        return (showModal.value = true)
     }
 
     router.push(item.route)

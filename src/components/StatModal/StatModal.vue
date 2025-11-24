@@ -20,7 +20,7 @@
                 >
                     <slot></slot>
                 </div>
-                <div class="text-center mb-6 ">
+                <div class="text-center mb-6">
                     <button
                         v-if="showCloseButton"
                         @click="closeModal"
