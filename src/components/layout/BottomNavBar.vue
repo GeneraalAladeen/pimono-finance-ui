@@ -1,6 +1,9 @@
 <script setup>
 import { Icon } from '@iconify/vue'
 import { ref } from 'vue'
+import Modal from '@/components/common/Modal.vue'
+
+const showModal = ref(false)
 
 const selectedItem = ref('Home')
 
@@ -8,12 +11,12 @@ const navItems = [
     {
         icon: 'iconamoon:home',
         name: 'Home',
-        route: '',
+        route: '/home',
     },
     {
         icon: 'ic:baseline-qr-code',
         name: 'QR islemleri',
-        route: '',
+        route: 'qr',
     },
     {
         icon: 'fa-send-o',
@@ -23,7 +26,7 @@ const navItems = [
     {
         icon: 'carbon:report',
         name: 'Odemeler',
-        route: '',
+        route: 'report',
     },
     {
         icon: 'zondicons:credit-card',
@@ -34,6 +37,10 @@ const navItems = [
 
 const selectItem = (item) => {
     selectedItem.value = item.name
+
+    if (item.route === '') {
+        showModal.value = true
+    }
 }
 </script>
 
@@ -55,5 +62,64 @@ const selectItem = (item) => {
                 <span class="text-[10px]">{{ item.name }}</span>
             </button>
         </div>
+        <Modal v-model="showModal" title="Basic Modal">
+            <div class="pl-4">
+                <div class="flex gap-4 text-white 0">
+                    <div class="grid place-content-center">
+                        <Icon
+                            :height="18"
+                            icon="fa-send-o"
+                        />
+                    </div>
+                    <div class="border-b py-3 w-full border-b-[#3A3A3C]">
+                        <p class="font-medium">Para Gonder</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 text-white 0">
+                    <div class="grid place-content-center">
+                        <Icon
+                            :height="18"
+                            icon="cil:transfer"
+                        />
+                    </div>
+                    <div class="border-b py-3 w-full border-b-[#3A3A3C]">
+                        <p class="font-medium">Para Iste</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 text-white 0">
+                    <div class="grid place-content-center">
+                        <Icon
+                            :height="18"
+                            icon="streamline-plump:web"
+                        />
+                    </div>
+                    <div class="border-b py-3 w-full border-b-[#3A3A3C]">
+                        <p class="font-medium">Yurt Didi Para Transferi</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 text-white 0">
+                    <div class="grid place-content-center">
+                        <Icon
+                            :height="18"
+                            icon="tdesign:secured"
+                        />
+                    </div>
+                    <div class="border-b py-3 w-full border-b-[#3A3A3C]">
+                        <p class="font-medium">Guvenli Odeme Islemi</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 text-white 0">
+                    <div class="grid place-content-center">
+                        <Icon
+                            :height="18"
+                            icon="pajamas:retry"
+                        />
+                    </div>
+                    <div class="py-3 w-full border-b-[#3A3A3C]">
+                        <p class="font-medium">Dezenli Transfer</p>
+                    </div>
+                </div>
+            </div>
+        </Modal>
     </nav>
 </template>
