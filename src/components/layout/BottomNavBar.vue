@@ -2,10 +2,14 @@
 import { Icon } from '@iconify/vue'
 import { ref } from 'vue'
 import Modal from '@/components/common/Modal.vue'
+import StatModal from '@/components/StatModal'
 import ListItem from '@/components/common/ListItem.vue'
 import router from '@/router'
 
+import chart from '@/assets/images/chart.png'
+
 const showModal = ref(false)
+const statModal = ref(false)
 const selectedItem = ref('Home')
 
 const navItems = [
@@ -38,6 +42,10 @@ const navItems = [
 
 const selectItem = (item) => {
     selectedItem.value = item.name
+
+    if (item.name === 'Odemeler') {
+        return (statModal.value = true)
+    }
 
     if (item.route === '') {
         showModal.value = true
@@ -81,5 +89,41 @@ const selectItem = (item) => {
                 <ListItem icon="iconoir:card-reader">QR ile ATM'den Para Yatir</ListItem>
             </div>
         </Modal>
+        <StatModal v-model="statModal">
+            <img :src="chart" class="w-3/4" />
+            <div class="flex flex-wrap gap-4 w-3/4 text-sm justify-center">
+                <div class="flex gap-2 items-center">
+                    <div class="size-4 rounded-sm bg-[#27AA73]"></div>
+                    <p class="text-white">Ulasim Kartian</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="size-4 rounded-sm bg-[#6768F0]"></div>
+                    <p class="text-white">Oyun & Dijital Kod</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="size-4 rounded-smd bg-[#126C95]"></div>
+                    <p class="text-white">Sans Oyunlan</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="size-4 rounded-sm bg-red-500"></div>
+                    <p class="text-white">Badis</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="size-4 rounded-smd bg-[#4EC4D5]"></div>
+                    <p class="text-white">Findeks</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="size-4 rounded-sm bg-[#12859F]"></div>
+                    <p class="text-white">Havalimani Hizmetieri</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="size-4 rounded-sm bg-[#D47E0D]"></div>
+                    <p class="text-white">GSM TL/Paket</p>
+                </div>
+            </div>
+            <p class="mt-6 text-3xl text-center font-semibold text-white">
+                Odemelerini aylik olarak kategori bazli goruntuleyebilirsin
+            </p>
+        </StatModal>
     </nav>
 </template>
